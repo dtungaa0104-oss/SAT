@@ -1,6 +1,6 @@
 // Оноо1600 service worker: сүлжээ сул үед хуудсыг кэшээс ачаална.
-const CACHE = "onoo1600-v3";
-const ASSETS = ["/", "/student", "/teacher", "/css/style.css", "/js/common.js", "/js/practice.js", "/js/student.js", "/js/teacher.js"];
+const CACHE = "onoo1600-v5";
+const ASSETS = ["/", "/student", "/teacher", "/tips", "/js/tips.js", "/css/style.css", "/js/common.js", "/js/practice.js", "/js/student.js", "/js/teacher.js"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).catch(() => {})); self.skipWaiting(); });
 self.addEventListener("activate", e => {
   e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))));
